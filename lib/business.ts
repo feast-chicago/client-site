@@ -28,8 +28,8 @@ export async function getBusiness(
   value: string,
 ): Promise<Business> {
   // In development, skip the cache entirely so changes show up immediately.
-  if (process.env.NODE_ENV === "development") {
-    return fetchFromSupabase(field, value);
-  }
-  return fetchBusinessCached(field, value);
+  // if (process.env.NODE_ENV === "development") {
+  return fetchFromSupabase(field, value);
+  // }
+  // return fetchBusinessCached(field, value);
 }
