@@ -1,5 +1,13 @@
 import { Business, PageComponent } from "@/schema";
-import { SECTION_MAP } from "./Blocks";
+import { DividerBlock, ImageBlock, TextBlock } from "./Blocks";
+
+const SECTION_MAP: Partial<
+  Record<PageComponent["type"], React.ComponentType<any>>
+> = {
+  divider: DividerBlock,
+  image: ImageBlock,
+  text: TextBlock,
+};
 
 export function ComponentRenderer({
   layout,
