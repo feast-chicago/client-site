@@ -56,15 +56,13 @@ function extractSubdomain(request: NextRequest): string | null {
 }
 
 export default clerkMiddleware(async (auth, request) => {
-  const { hostname, pathname } = request.nextUrl;
+  const { pathname } = request.nextUrl;
   const subdomain = extractSubdomain(request);
 
-  console.log("[middleware-debug]", {
-    hostname,
-    pathname,
-    subdomain,
-    method: request.method,
-  });
+  // Keep the revalidation webhook at its original API path.
+  if (pathname === "/api/webhooks/revalidate") {
+    return;
+  }
 
   if (subdomain) {
     const rewritePath =
