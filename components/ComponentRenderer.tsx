@@ -1,11 +1,5 @@
 import { Business, PageComponent } from "@/schema";
-import { TextBlock } from "./Blocks";
-
-const SECTION_MAP: Partial<
-  Record<PageComponent["type"], React.ComponentType<any>>
-> = {
-  text: TextBlock,
-};
+import { SECTION_MAP } from "./Blocks";
 
 export function ComponentRenderer({
   layout,
