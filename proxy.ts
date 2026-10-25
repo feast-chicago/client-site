@@ -56,8 +56,15 @@ function extractSubdomain(request: NextRequest): string | null {
 }
 
 export default clerkMiddleware(async (auth, request) => {
-  const { pathname } = request.nextUrl;
+  const { hostname, pathname } = request.nextUrl;
   const subdomain = extractSubdomain(request);
+
+  console.log("[middleware-debug]", {
+    hostname,
+    pathname,
+    subdomain,
+    method: request.method,
+  });
 
   if (subdomain) {
     const rewritePath =
