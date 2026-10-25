@@ -10,5 +10,6 @@ export async function POST(req: NextRequest) {
   }
 
   await revalidateTag("business", "max");
+  console.log({ revalidated: true });
   return NextResponse.json({ revalidated: true });
 }
