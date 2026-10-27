@@ -1,9 +1,10 @@
 import { Business, PageComponent } from "@/schema";
-import { DividerBlock, HeaderBlock, ImageBlock, TextBlock } from "./Blocks";
+import { ButtonBlock, DividerBlock, HeaderBlock, ImageBlock, TextBlock } from "./Blocks";
 
 const SECTION_MAP: Partial<
   Record<PageComponent["type"], React.ComponentType<any>>
 > = {
+  button: ButtonBlock,
   divider: DividerBlock,
   header: HeaderBlock,
   image: ImageBlock,
@@ -11,11 +12,11 @@ const SECTION_MAP: Partial<
 };
 
 export function ComponentRenderer({
-  layout,
   business,
+  layout,
 }: {
-  layout: PageComponent[];
   business: Business;
+  layout: PageComponent[];
 }) {
   return (
     <>
@@ -27,6 +28,7 @@ export function ComponentRenderer({
             key={component.id}
             props={component.props}
             business={business}
+            theme={business.theme}
           />
         );
       })}
