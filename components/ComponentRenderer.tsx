@@ -1,5 +1,5 @@
 import { Business, PageComponent } from "@/schema";
-import { ButtonBlock, DividerBlock, HeaderBlock, ImageBlock, TextBlock } from "./Blocks";
+import { ButtonBlock, DividerBlock, HeaderBlock, ImageBlock, SocialBlock, TextBlock } from "./Blocks";
 
 const SECTION_MAP: Partial<
   Record<PageComponent["type"], React.ComponentType<any>>
@@ -8,6 +8,7 @@ const SECTION_MAP: Partial<
   divider: DividerBlock,
   header: HeaderBlock,
   image: ImageBlock,
+  social: SocialBlock,
   text: TextBlock,
 };
 
