@@ -30,7 +30,9 @@ export function formatBytes(bytes: number, decimals: number = 2): string {
   return `${parseFloat((bytes / Math.pow(k, unitIndex)).toFixed(dm))} ${sizes[unitIndex]}`;
 }
 
-export function toProperCase(text: string) {
+export function toProperCase(text: string | null) {
+  if (!text) return "";
+
   const arr = text.split(" ");
   const result: string[] = [];
 
